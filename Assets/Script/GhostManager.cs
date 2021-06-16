@@ -20,8 +20,8 @@ public class GhostManager : MonoBehaviour
     {
         countDead = 0;
         currentTime = 0f;
-        rogue = 0;
-        maxGhost = 3;
+        rogue = 1;
+        maxGhost = 2;
         haveToChangeRogue = false;
     }
 
@@ -36,25 +36,38 @@ public class GhostManager : MonoBehaviour
         if(countDead %5 == 0 && haveToChangeRogue == true)
         {
             rogue += 1;
-            maxGhost += 3;
+            if(maxGhost < 6)
+            {
+                maxGhost += 1;
+            }
+
             haveToChangeRogue = false;
         }
 
         string ghostName = "Prefab/Ghost_Slime";
 
-        if (rogue > 2)
+        if (rogue > 1)
         {
             int nbSlimes = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Slime")).Count();
 
-            if(nbSlimes >= GameObject.FindGameObjectsWithTag("ghost").Count()/ 2)
+            if (nbSlimes >= currentGhost / 2)
             {
                 ghostName = "Prefab/Ghost_Demon";
+            }
+        }
+        else if (rogue > 3)
+        {
+            int nbDemons = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Demon")).Count();
+
+            if (nbDemons >= currentGhost / 2)
+            {
+                ghostName = "Prefab/Ghost_Genie";
             }
         }
 
         aGhost = Resources.Load<GameObject>(ghostName);
 
-        if (currentGhost <  (int) minGhost && currentTime < 0 && currentGhost <= maxGhost)
+        if (currentGhost < (int) minGhost && currentTime < 0 && currentGhost <= maxGhost)
         {
             spawnX = Random.Range(0, 1920);
             if(spawnX > 600 && spawnX < 1300)
