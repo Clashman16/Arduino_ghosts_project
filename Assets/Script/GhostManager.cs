@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 public class GhostManager : MonoBehaviour
 {
     public int currentGhost;
+    public int rogue;
+    public bool haveToChangeRogue;
+    public int countDead;
+    private int maxGhost;
     public float minGhost;
-    public GameObject aGhost;
+    private GameObject aGhost;
     private float currentTime;
     public float waitToSpawn;
 
@@ -15,7 +18,11 @@ public class GhostManager : MonoBehaviour
 
     void Start()
     {
+        countDead = 0;
         currentTime = 0f;
+        rogue = 1;
+        maxGhost = 2;
+        haveToChangeRogue = false;
     }
 
     public void AddMinGhostValue()
@@ -26,7 +33,41 @@ public class GhostManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentGhost <  (int) minGhost && currentTime < 0 && currentGhost <= 5)
+        if(countDead %5 == 0 && haveToChangeRogue == true)
+        {
+            rogue += 1;
+            if(maxGhost < 6)
+            {
+                maxGhost += 1;
+            }
+
+            haveToChangeRogue = false;
+        }
+
+        string ghostName = "Prefab/Ghost_Slime";
+
+        if (rogue > 1)
+        {
+            int nbSlimes = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Slime")).Count();
+
+            if (nbSlimes >= currentGhost / 2)
+            {
+                ghostName = "Prefab/Ghost_Demon";
+            }
+        }
+        else if (rogue > 3)
+        {
+            int nbDemons = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Demon")).Count();
+
+            if (nbDemons >= currentGhost / 2)
+            {
+                ghostName = "Prefab/Ghost_Genie";
+            }
+        }
+
+        aGhost = Resources.Load<GameObject>(ghostName);
+
+        if (currentGhost < (int) minGhost && currentTime < 0 && currentGhost <= maxGhost)
         {
             spawnX = Random.Range(0, 1920);
             if(spawnX > 600 && spawnX < 1300)

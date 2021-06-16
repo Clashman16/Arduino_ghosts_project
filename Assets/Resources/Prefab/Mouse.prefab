@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receivedDatas: 
-  devMode: 0
+  devMode: 1
 --- !u!50 &5673686139170806645
 Rigidbody2D:
   serializedVersion: 4
