@@ -5,8 +5,10 @@ using UnityEngine;
 public class GhostManager : MonoBehaviour
 {
     public int currentGhost;
+    public int rogue;
+    public int maxGhost;
     public float minGhost;
-    public GameObject aGhost;
+    private GameObject aGhost;
     private float currentTime;
     public float waitToSpawn;
 
@@ -16,6 +18,8 @@ public class GhostManager : MonoBehaviour
     void Start()
     {
         currentTime = 0f;
+        rogue = 0;
+        maxGhost = 3;
     }
 
     public void AddMinGhostValue()
@@ -26,7 +30,40 @@ public class GhostManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentGhost <  (int) minGhost && currentTime < 0 && currentGhost <= 5)
+        if (currentGhost < 3 )
+        {
+            rogue += 1;
+            maxGhost += 3;
+        }
+
+        string ghostName = "";
+
+        if (rogue % 2 != 0)
+        {
+            if (currentGhost % 2 == 0)
+            {
+                ghostName = "Prefab/Ghost_Slime";
+            }
+            else
+            {
+                ghostName = "Prefab/Ghost_Demon";
+            }
+        }
+        else
+        {
+            if (currentGhost % 2 != 0)
+            {
+                ghostName = "Prefab/Ghost_Slime";
+            }
+            else
+            {
+                ghostName = "Prefab/Ghost_Demon";
+            }
+        }
+
+        aGhost = Resources.Load<GameObject>(ghostName);
+
+        if (currentGhost <  (int) minGhost && currentTime < 0 && currentGhost <= maxGhost)
         {
             spawnX = Random.Range(0, 1920);
             if(spawnX > 600 && spawnX < 1300)
