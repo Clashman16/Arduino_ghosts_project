@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 public class GhostManager : MonoBehaviour
 {
     public int currentGhost;
     public int rogue;
-    public int maxGhost;
+    public bool haveToChangeRogue;
+    public int countDead;
+    private int maxGhost;
     public float minGhost;
     private GameObject aGhost;
     private float currentTime;
@@ -17,9 +18,11 @@ public class GhostManager : MonoBehaviour
 
     void Start()
     {
+        countDead = 0;
         currentTime = 0f;
         rogue = 0;
         maxGhost = 3;
+        haveToChangeRogue = false;
     }
 
     public void AddMinGhostValue()
@@ -30,32 +33,20 @@ public class GhostManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentGhost < 3 )
+        if(countDead %5 == 0 && haveToChangeRogue == true)
         {
             rogue += 1;
             maxGhost += 3;
+            haveToChangeRogue = false;
         }
 
-        string ghostName = "";
+        string ghostName = "Prefab/Ghost_Slime";
 
-        if (rogue % 2 != 0)
+        if (rogue > 2)
         {
-            if (currentGhost % 2 == 0)
-            {
-                ghostName = "Prefab/Ghost_Slime";
-            }
-            else
-            {
-                ghostName = "Prefab/Ghost_Demon";
-            }
-        }
-        else
-        {
-            if (currentGhost % 2 != 0)
-            {
-                ghostName = "Prefab/Ghost_Slime";
-            }
-            else
+            int nbSlimes = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Slime")).Count();
+
+            if(nbSlimes >= GameObject.FindGameObjectsWithTag("ghost").Count()/ 2)
             {
                 ghostName = "Prefab/Ghost_Demon";
             }

@@ -85,6 +85,8 @@ public class GhostMovement : MonoBehaviour
                 burning.Stop();
                 death.Stop();
                 Destroy(gameObject);
+                GameObject.Find("ghostManager").GetComponent<GhostManager>().countDead += 1;
+                GameObject.Find("ghostManager").GetComponent<GhostManager>().haveToChangeRogue = true;
             }
         }
 
