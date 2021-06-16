@@ -9,11 +9,13 @@ public class Mine : MonoBehaviour
     public GameObject aLight;
     private int currentLifetime;
     public int maxLifetime;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = GetComponent<HP>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,8 @@ public class Mine : MonoBehaviour
         {
             isActive = false;
             aLight.SetActive(false);
+            animator.SetBool("is_activate", false);
+            hp.currentHP = hp.maxHP;
         }
     }
 
@@ -46,5 +50,6 @@ public class Mine : MonoBehaviour
         aLight.SetActive(true);
         currentLifetime = maxLifetime;
         hp.currentHP = hp.maxHP;
+        animator.SetBool("is_activate", true);
     }
 }
