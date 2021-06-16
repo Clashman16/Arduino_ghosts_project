@@ -55,7 +55,8 @@ public class GhostManager : MonoBehaviour
                 ghostName = "Prefab/Ghost_Demon";
             }
         }
-        else if (rogue > 3)
+        
+        if (rogue > 3)
         {
             int nbDemons = GameObject.FindObjectsOfType<GameObject>().Where(obj => obj.name.Contains("Ghost_Demon")).Count();
 

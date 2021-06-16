@@ -10,6 +10,10 @@ public class Mine : MonoBehaviour
     private int currentLifetime;
     public int maxLifetime;
     private Animator animator;
+    public AudioSource setActive;
+    public AudioSource setInactive;
+    public AudioSource charging;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +36,17 @@ public class Mine : MonoBehaviour
         }
     }
 
+    public bool IsActive()
+    {
+        return isActive;
+    }
+
     public void SetLifeTime()
     {
         currentLifetime -= 1;
         if (currentLifetime < 0)
         {
+            setInactive.Play();
             isActive = false;
             aLight.SetActive(false);
             animator.SetBool("is_activate", false);
@@ -46,10 +56,12 @@ public class Mine : MonoBehaviour
 
     public void ActivateLight()
     {
+        charging.Stop();
         isActive = true;
         aLight.SetActive(true);
         currentLifetime = maxLifetime;
         hp.currentHP = hp.maxHP;
         animator.SetBool("is_activate", true);
+        setActive.Play();
     }
 }

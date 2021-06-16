@@ -27,7 +27,20 @@ public class Hurt : MonoBehaviour
                 collision.GetComponent<AudioSource>().Play();
             }        
         }
-        if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
+
+        if (collision.gameObject.tag == "mine" && gameObject.tag == "light")
+        {
+            Mine aMine = collision.gameObject.GetComponent<Mine>();
+            if (!aMine.IsActive())
+            {
+                if (!aMine.charging.isPlaying)
+                {
+                    aMine.charging.Play();
+                }
+            }
+        }
+
+            if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
         {
             ghost = collision.gameObject.GetComponent<GhostMovement>();
             ghost.anim.SetBool("isBurning", true);
