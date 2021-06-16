@@ -68,7 +68,7 @@ public class GhostManager : MonoBehaviour
 
         aGhost = Resources.Load<GameObject>(ghostName);
 
-        if (currentGhost < (int) minGhost && currentTime < 0 && currentGhost <= maxGhost)
+        if (currentTime < 0 && currentGhost <= maxGhost)
         {
             spawnX = Random.Range(0, 1920);
             if(spawnX > 600 && spawnX < 1300)

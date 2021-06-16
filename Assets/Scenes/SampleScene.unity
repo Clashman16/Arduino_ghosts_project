@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mine (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
 --- !u!1001 &341271046
@@ -423,6 +427,10 @@ PrefabInstance:
     - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
       propertyPath: m_Name
       value: Mine (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
@@ -563,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
       propertyPath: m_Name
       value: Mine (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
@@ -926,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06802413, g: 0.4433962, b: 0.05228728, a: 1}
+  m_Color: {r: 0.36170796, g: 0.44313726, b: 0.05098039, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1099,6 +1111,10 @@ PrefabInstance:
     - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
       propertyPath: m_Name
       value: Mine (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
@@ -1607,8 +1623,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGhost: 0
+  rogue: 0
+  haveToChangeRogue: 0
+  countDead: 0
   minGhost: 1
-  aGhost: {fileID: 2429878975374681041, guid: 3116de5c73693d247bbc58a595f97967, type: 3}
   waitToSpawn: 2.2
 --- !u!4 &1698696703
 Transform:
@@ -2127,7 +2145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b0a51b759edb8934ab3fd9f35ec1062e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71d81fe5d1e4f6146b583f75b60bf725, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2159,8 +2177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1794644780}
   ghost:
-  - {fileID: 21300000, guid: b0a51b759edb8934ab3fd9f35ec1062e, type: 3}
-  - {fileID: 21300000, guid: 429ce6c09be6f0a4f985911e85eaf9d4, type: 3}
+  - {fileID: 21300000, guid: 71d81fe5d1e4f6146b583f75b60bf725, type: 3}
+  - {fileID: 21300000, guid: a89759eb7ee257849bda67e6d0a5d49e, type: 3}
 --- !u!1 &1874293645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2611,10 @@ PrefabInstance:
     - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
       propertyPath: m_Name
       value: Mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178134035746069156, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec835d04a018f74ea6b7e7020dc8768, type: 3}
