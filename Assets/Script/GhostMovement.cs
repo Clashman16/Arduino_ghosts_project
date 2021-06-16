@@ -30,6 +30,8 @@ public class GhostMovement : MonoBehaviour
     public float f0;
     public float time = 0f;
 
+    private float BasedMoveSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class GhostMovement : MonoBehaviour
         hp = GetComponent<HP>();
 
         movespeed = Random.Range(85f, 200f);
+        BasedMoveSpeed = movespeed;
         period = Random.Range(750f, 1500f);
         delay = Random.Range(0, 6f);
         f0 = Random.Range(350, 550);
@@ -95,9 +98,28 @@ public class GhostMovement : MonoBehaviour
         }
     }
 
+    public void setTargeted()
+    {
+        anim.SetBool("isBurning", true);
+        if (!burning.isPlaying)
+        {
+            burning.Play();
+        }
+        isTargeted = true;
+        movespeed = 0.1f;
+    }
+
+    public void setNotTargeted()
+    {
+        isTargeted = false;
+        anim.SetBool("isBurning", false);
+        burning.Stop();
+        movespeed = BasedMoveSpeed;
+    }
+
     private void FixedUpdate()
     {
-        if (can_move && !isTargeted)
+        if (can_move)
         {
             moveCharacter(movement);
         }

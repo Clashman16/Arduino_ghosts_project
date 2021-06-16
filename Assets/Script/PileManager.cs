@@ -20,7 +20,7 @@ public class PileManager : MonoBehaviour
     {
         if (!isThereAPile && lightMana.GetCurrentEnergy() < lightMana.energyMax/2)
         {
-            Instantiate(pile, new Vector3(Random.Range(50, 1870), Random.Range(50, 975), 0), transform.rotation);
+            Instantiate(pile, new Vector3(Random.Range(50, 1700), Random.Range(50, 975), 0), transform.rotation);
             isThereAPile = true;
         }
     }

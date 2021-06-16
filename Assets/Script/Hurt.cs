@@ -40,16 +40,12 @@ public class Hurt : MonoBehaviour
             }
         }
 
-            if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
+        if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
         {
             ghost = collision.gameObject.GetComponent<GhostMovement>();
-            ghost.anim.SetBool("isBurning", true);
-            if (!ghost.burning.isPlaying)
-            {
-                ghost.burning.Play();
-            }
-            ghost.isTargeted = true;
-        }else if(collision.gameObject.tag == "Player")
+            ghost.setTargeted();
+        }
+        else if (collision.gameObject.tag == "Player")
         {
             collision.GetComponent<PlayerBehavior>().SetIsAttacked(true);
         }
@@ -60,9 +56,7 @@ public class Hurt : MonoBehaviour
         if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
         {
             ghost = collision.gameObject.GetComponent<GhostMovement>();
-            ghost.isTargeted = false;
-            ghost.anim.SetBool("isBurning", false);
-            ghost.burning.Stop();
+            ghost.setNotTargeted();
         }else if (collision.gameObject.tag == "Player")
         {
             collision.GetComponent<PlayerBehavior>().SetIsAttacked(false);
