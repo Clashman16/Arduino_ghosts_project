@@ -25,11 +25,6 @@ public class GhostManager : MonoBehaviour
         haveToChangeRogue = false;
     }
 
-    public void AddMinGhostValue()
-    {
-        minGhost += Random.Range(0.2f, 1f);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -82,7 +77,7 @@ public class GhostManager : MonoBehaviour
             currentGhost += 1; 
             if (minGhost > 11)
             {
-                waitToSpawn = waitToSpawn*10/minGhost;
+                waitToSpawn = waitToSpawn*5/(2*minGhost);
                 Debug.Log(waitToSpawn + "\n");
                 if(waitToSpawn < 0.55f)
                 {
