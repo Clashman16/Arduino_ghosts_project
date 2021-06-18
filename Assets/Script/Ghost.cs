@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostMovement : MonoBehaviour
+public class Ghost : MonoBehaviour
 {
     private Transform ghost;
     private Rigidbody2D myRigidBody;

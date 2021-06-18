@@ -7,7 +7,7 @@ public class Hurt : MonoBehaviour
     public string[] targetName;
     private HP HPTarget;
 
-    public GhostMovement ghost;
+    public Ghost ghost;
     public int damage;
 
     void OnTriggerStay2D(Collider2D collision)
@@ -42,7 +42,7 @@ public class Hurt : MonoBehaviour
 
         if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
         {
-            ghost = collision.gameObject.GetComponent<GhostMovement>();
+            ghost = collision.gameObject.GetComponent<Ghost>();
             ghost.setTargeted();
         }
         else if (collision.gameObject.tag == "Player")
@@ -55,7 +55,7 @@ public class Hurt : MonoBehaviour
     {
         if (collision.gameObject.tag == "ghost" && gameObject.tag == "light")
         {
-            ghost = collision.gameObject.GetComponent<GhostMovement>();
+            ghost = collision.gameObject.GetComponent<Ghost>();
             ghost.setNotTargeted();
         }else if (collision.gameObject.tag == "Player")
         {
