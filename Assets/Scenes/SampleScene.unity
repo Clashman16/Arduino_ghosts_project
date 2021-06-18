@@ -998,8 +998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 832, y: 480.1}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 771, y: 451}
+  m_SizeDelta: {x: 70, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288762483
 MonoBehaviour:
@@ -1023,7 +1023,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
@@ -1774,8 +1774,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 692, y: 480.1}
-  m_SizeDelta: {x: 500, y: 30}
+  m_AnchoredPosition: {x: 290, y: 454.1335}
+  m_SizeDelta: {x: 156.0161, y: 47.3108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728967840
 MonoBehaviour:
@@ -2115,15 +2115,15 @@ RectTransform:
   m_GameObject: {fileID: 1803975758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 1728967839}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: -8.2}
-  m_SizeDelta: {x: 35, y: 60}
+  m_AnchoredPosition: {x: -114, y: -4}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803975760
 MonoBehaviour:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71d81fe5d1e4f6146b583f75b60bf725, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad4a0635b982aca4c87d2aee7f33b5d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2177,8 +2177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1794644780}
   ghost:
-  - {fileID: 21300000, guid: 71d81fe5d1e4f6146b583f75b60bf725, type: 3}
-  - {fileID: 21300000, guid: a89759eb7ee257849bda67e6d0a5d49e, type: 3}
+  - {fileID: 21300000, guid: ad4a0635b982aca4c87d2aee7f33b5d0, type: 3}
+  - {fileID: 21300000, guid: 317c4960e60b1b148ab1d63f911f02a3, type: 3}
 --- !u!1 &1874293645
 GameObject:
   m_ObjectHideFlags: 0
