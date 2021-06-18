@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  maxHP: 21
+  maxHP: 15
   coolDownDamage: 0.075
 --- !u!114 &5973963541666778870
 MonoBehaviour:
